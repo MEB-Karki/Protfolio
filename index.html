@@ -91,10 +91,23 @@
             margin-bottom: 2rem;
             transition: transform 0.3s ease;
             animation: fadeInUp 1s ease-out;
+            /* Fallback background in case image doesn't load */
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
         }
         
         .profile-img:hover {
             transform: scale(1.05);
+        }
+        
+        /* Hide the fallback text when image loads */
+        .profile-img[src]:not([src=""]) {
+            color: transparent;
         }
         
         .hero-content h1 {
@@ -447,7 +460,7 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="meb.png" alt="Mebika Karki" class="profile-img">
+                <img src="./meb.png" alt="Mebika Karki" class="profile-img" onerror="this.innerHTML='MK'; this.style.fontSize='4rem';">
                 <h1>Mebika Karki</h1>
                 <div class="subtitle">BSc.IT (Hons) Student & Web Developer</div>
                 <p>Passionate about creating beautiful and functional web experiences with modern technologies. Currently studying at ISMT, Biratnagar, and building my skills in web development.</p>
